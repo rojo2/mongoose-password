@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-password",
+  "version": "1.0.0",
+  "description": "",
+  "main": "password.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "rojo2-password": "git://github.com/rojo2/password.git#11ea419"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "chai": "^3.5.0",
+    "mongoose": "^4.5.5"
+  },
+  "author": "ROJO 2 <hola@rojo2.com> (http://rojo2.com)",
+  "license": "MIT"
+}
