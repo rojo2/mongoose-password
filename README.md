@@ -1,4 +1,5 @@
 # Mongoose Password plugin
+![Travis CI](https://travis-ci.org/rojo2/mongoose-password.svg?branch=master)
 
 Mongoose password plugin using [password](https://github.com/rojo2/password)
 
