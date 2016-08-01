@@ -1,4 +1,4 @@
-const password = require("rojo2-password");
+const password = require("password");
 
 /**
  * Plugin that adds to a mongoose Schema
