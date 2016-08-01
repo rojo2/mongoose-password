@@ -13,7 +13,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "password": "git://github.com/rojo2/password.git#11ea419"
+    "password": "git+https://github.com/rojo2/password.git"
   },
   "devDependencies": {
     "mocha": "^2.5.3",
