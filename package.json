@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "password.js",
+  "engines": {
+    { "node": ">=6.3.0" }
+  },
   "directories": {
     "test": "test"
   },
@@ -10,7 +13,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "rojo2-password": "git://github.com/rojo2/password.git#11ea419"
+    "password": "git://github.com/rojo2/password.git#11ea419"
   },
   "devDependencies": {
     "mocha": "^2.5.3",
