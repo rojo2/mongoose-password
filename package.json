@@ -1,10 +1,10 @@
 {
   "name": "mongoose-password",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mongoose Password (PBKDF2) plugin",
   "main": "password.js",
   "engines": {
-    { "node": ">=6.3.0" }
+    "node": ">=6.3.0"
   },
   "directories": {
     "test": "test"
