@@ -10,8 +10,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "test:watch": "mocha --watch"
+    "test": "mocha --require chai/register-expect",
+    "test:watch": "mocha --require chai/register-expect --watch"
   },
   "dependencies": {
     "@rojo2/password": "^1.0.1"

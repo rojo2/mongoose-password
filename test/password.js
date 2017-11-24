@@ -31,6 +31,12 @@ describe("Mongoose Password", function() {
 
   });
 
+  after((done) => {
+
+    mongoose.disconnect(done);
+
+  });
+
   it("should use hash the password", (done) => {
 
     const User = mongoose.model("user");
