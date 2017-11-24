@@ -1,7 +1,7 @@
 {
-  "name": "mongoose-password",
-  "version": "1.0.0",
-  "description": "Mongoose Password (PBKDF2) plugin",
+  "name": "@rojo2/mongoose-password",
+  "version": "1.0.1",
+  "description": "Mongoose Plugin for saving secure passwords (using PBKDF2)",
   "main": "password.js",
   "engines": {
     "node": ">=6.3.0"
@@ -10,16 +10,30 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:watch": "mocha --watch"
   },
   "dependencies": {
-    "password": "git+https://github.com/rojo2/password.git"
+    "@rojo2/password": "^1.0.1"
   },
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "chai": "^3.5.0",
-    "mongoose": "^4.5.5"
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "mongoose": "^4.13.5"
   },
   "author": "ROJO 2 <hola@rojo2.com> (http://rojo2.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rojo2/mongoose-password.git"
+  },
+  "keywords": [
+    "mongoose",
+    "password",
+    "pbkdf2"
+  ],
+  "bugs": {
+    "url": "https://github.com/rojo2/mongoose-password/issues"
+  },
+  "homepage": "https://github.com/rojo2/mongoose-password#readme"
 }
