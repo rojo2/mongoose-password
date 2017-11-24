@@ -1,6 +1,6 @@
 {
   "name": "@rojo2/mongoose-password",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mongoose Plugin for saving secure passwords (using PBKDF2)",
   "main": "password.js",
   "engines": {
