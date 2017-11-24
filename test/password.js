@@ -9,7 +9,7 @@ describe("Mongoose Password", function() {
   before((done) => {
 
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/mongoose-test", (err) => {
+    mongoose.connect("mongodb://localhost/mongoose-test", { useMongoClient: true }, (err) => {
 
       if (err) {
         return done(err);
@@ -23,7 +23,7 @@ describe("Mongoose Password", function() {
       });
 
       UserSchema.plugin(password);
-      
+
       const User = mongoose.model("user", UserSchema);
       User.remove().then(() => done());
 
@@ -32,7 +32,7 @@ describe("Mongoose Password", function() {
   });
 
   it("should use hash the password", (done) => {
-      
+
     const User = mongoose.model("user");
 
     const newUser = new User({
@@ -45,7 +45,7 @@ describe("Mongoose Password", function() {
     }).catch((err) => done(err));
 
   });
-  
+
   it("should verify that the password is incorrect", (done) => {
 
     const User = mongoose.model("user");
