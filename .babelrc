@@ -1,0 +1,18 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {
+          "modules": false
+        }],
+        "stage-2"
+      ]
+    },
+    "test": {
+      "presets": [
+        "env",
+        "stage-2"
+      ]
+    }
+  }
+}

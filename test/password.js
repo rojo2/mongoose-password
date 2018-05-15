@@ -1,6 +1,6 @@
-const {expect} = require("chai");
-const mongoose = require("mongoose");
-const password = require("../password");
+import { expect } from "chai";
+import mongoose from "mongoose";
+import password from "../src/password";
 
 describe("Mongoose Password", function() {
 
@@ -9,31 +9,120 @@ describe("Mongoose Password", function() {
   before((done) => {
 
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/mongoose-test", { useMongoClient: true }, (err) => {
+    mongoose
+      .connect("mongodb://localhost/mongoose-test")
+      .then(() => {
+        
+        const UserSchema = new mongoose.Schema({
+          email: {
+            type: String,
+            unique: true
+          }
+        });
 
-      if (err) {
-        return done(err);
-      }
+        UserSchema.plugin(password, {
+          iterations: 10000,
+          keyLength: 32
+        });
 
-      const UserSchema = new mongoose.Schema({
-        email: {
-          type: String,
-          unique: true
-        }
+        const User = mongoose.model("user", UserSchema);
+        User.remove().then(() => done());
+          
       });
-
-      UserSchema.plugin(password);
-
-      const User = mongoose.model("user", UserSchema);
-      User.remove().then(() => done());
-
-    });
 
   });
 
   after((done) => {
 
     mongoose.disconnect(done);
+
+  });
+
+  it("should try to apply plugin with invalid propertyName", () => {
+
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        propertyName: ""
+      });
+
+    }).to.throw(Error);
+
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        propertyName: "   \n"
+      });
+
+    }).to.throw(Error);
+
+  });
+
+  it("should try to apply plugin with invalid methodName", () => {
+
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        methodName: ""
+      });
+
+    }).to.throw(Error);
+    
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        methodName: "   \n"
+      });
+
+    }).to.throw(Error);
+
+  });
+
+  it("should try to apply plugin with invalid iterations", () => {
+
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        iterations: "10000"
+      });
+
+    }).to.throw(Error);
+
+  });
+
+  it("should try to apply plugin with invalid key length", () => {
+
+    expect(() => {
+
+      const TestSchema = new Schema({
+        value: String
+      });
+
+      TestSchema.plugin(password, {
+        keyLength: "32"
+      });
+
+    }).to.throw(Error);
 
   });
 

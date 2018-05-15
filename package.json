@@ -1,8 +1,9 @@
 {
   "name": "@rojo2/mongoose-password",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Mongoose Plugin for saving secure passwords (using PBKDF2)",
-  "main": "password.js",
+  "main": "dist/password.cjs.js",
+  "module": "dist/password.esm.js",
   "engines": {
     "node": ">=6.3.0"
   },
@@ -10,16 +11,23 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha --require chai/register-expect",
-    "test:watch": "mocha --require chai/register-expect --watch"
+    "build": "NODE_ENV=production rollup -c",
+    "test": "NODE_ENV=test mocha --require babel-core/register",
+    "test:watch": "NODE_ENV=test mocha --watch --require babel-core/register"
   },
   "dependencies": {
-    "@rojo2/password": "^1.0.1"
+    "@rojo2/is-string": "^1.0.2",
+    "@rojo2/password": "^1.1.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "mongoose": "^4.13.5"
+    "mocha": "^5.1.1",
+    "mongoose": "^5.1.1",
+    "rollup": "^0.59.0",
+    "rollup-plugin-babel": "^3.0.4"
   },
   "author": "ROJO 2 <hola@rojo2.com> (http://rojo2.com)",
   "license": "MIT",

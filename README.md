@@ -1,11 +1,11 @@
 # Mongoose Password plugin
 ![Travis CI](https://travis-ci.org/rojo2/mongoose-password.svg?branch=master)
 
-Mongoose password plugin using [password](https://github.com/rojo2/password)
+Mongoose password plugin using [@rojo2/password](https://github.com/rojo2/password)
 
 ```javascript
-const password = require("rojo2-mongoose-password");
-const {Schema} = require("mongoose");
+import password from "@rojo2/mongoose-password";
+import { Schema } from "mongoose";
 
 const UserSchema = new Schema({
   email: {
@@ -15,8 +15,7 @@ const UserSchema = new Schema({
 });
 
 UserSchema.plugin(password);
-
 ```
 
-Made with ❤ by ROJO 2 (http://rojo2.com)
+Made with :heart: by ROJO 2 (http://rojo2.com)
 
